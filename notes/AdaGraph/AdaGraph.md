@@ -2,7 +2,19 @@
 @(Transfer Learning)
 ## Introduction
 predictive transfer learning：target domain既没有label也没有data，但是有labeled source domain和有data无label的辅助domain，以及各个domain的metadata
-
+<script type="text/x-mathjax-config"> 
+   		MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); 
+   	</script>
+    <script type="text/x-mathjax-config">
+    	MathJax.Hub.Config({tex2jax: {
+             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+             processEscapes: true
+           }
+         });
+    </script>
+    
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+    </script>
 - 共同的基石网络嵌入到不同的领域具体模型中
 - 利用metadata和辅助样本构建图，显示描绘domain之间的依赖关系，依赖关系由metadata决定
 - 当target数据流不断流入时持续更新网络参数
