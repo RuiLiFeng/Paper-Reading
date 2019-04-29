@@ -39,8 +39,8 @@ $$GBN(x,v)=\gamma_v\frac{x-\mu_v}{\sqrt{\sigma^2_v+\epsilon}}+\beta_v$$
 第一项为在有标签domain上的交叉熵，第二项为在辅助domain上的熵。
 
 这里的domain specific参数实际上就是basis和scale参数，为了把图的信息引入到训练过程中，进一步修改GBN为：
-![Alt text|center](./1554551440101.png)
-![Alt text|center](./1554551447212.png)
+![Alt text|center](./src/AdaGraph/1554551440101.png)
+![Alt text|center](./src/AdaGraph/1554551447212.png)
 
 ## Continuous domain adaptation
 在测试时，target data会逐步的流入，可以运用这些target数据流进一步调整模型。这里采取更新BN统计量的方式来达成这一点。
