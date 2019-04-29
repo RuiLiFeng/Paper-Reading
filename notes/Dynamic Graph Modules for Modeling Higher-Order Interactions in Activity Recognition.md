@@ -1,3 +1,7 @@
+## 作者与投稿
+只在arxiv preprint上找到，发表于2018，Google citations 0，目前第一作者找不到google citations，通讯作者Chenliang Xu google citation 928. 作者除二作University of Michigan外，都来自University of Rochester
+
+
 ## 概要
 为了进行视频动作识别，有必要考虑以下两点：
 - 同一帧中对象（object）之间的关系
