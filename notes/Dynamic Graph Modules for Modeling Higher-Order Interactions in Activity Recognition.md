@@ -1,3 +1,7 @@
+## 作者与投稿
+只在arxiv preprint上找到，发表于2018，Google citations 0，目前第一作者找不到google citations，通讯作者Chenliang Xu google citation 928. 作者除二作University of Michigan外，都来自University of Rochester
+
+
 ## 概要
 为了进行视频动作识别，有必要考虑以下两点：
 - 同一帧中对象（object）之间的关系
@@ -32,5 +36,5 @@
 ## Graph Attention
 为了识别每一时刻的动作，并将当前的状态信息传递到下一时刻，这里采用和LSTM一样的思路，在每一时刻的图中设置一个状态变量$q_t$, 状态变量的取值为上一时刻状态与每个结点相似度为权（所谓的graph attention），整个图上点强所有结点的加权平均。
 
-##实验结果：
+## 实验结果：
 感觉就是调参调高了一个点，和baseline比起来最好的高了不到1%，最差的还不如
