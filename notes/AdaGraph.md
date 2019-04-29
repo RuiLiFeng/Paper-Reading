@@ -35,7 +35,7 @@ $\gamma,\beta$是可以学习的全局scale和basis参数。
 本文中，令$\psi(k)=\theta_k=\{\theta^{\alpha},\theta^s_k\}$, $\theta^{\alpha}$是全局的共同参数，代表各domain之间的共性（卷积与全链接层），$\theta^s_k$则是domain specific的（DABN层）。利用GraphBN来代替原始的BN，GraphBN定义为：
 $$GBN(x,v)=\gamma_v\frac{x-\mu_v}{\sqrt{\sigma^2_v+\epsilon}}+\beta_v$$
 其中$\mu_v=\frac{1}{|\mathcal{B}_v|}\Sigma_{x\in\mathcal{B}_v}x,\sigma^2_v=\frac{1}{|\mathcal{B}_v|}\Sigma_{x\in\mathcal{B}_v}(x-\mu_v)^2$称这一层GBN的统计量, $\mathcal{B}_v$是当前batch中属于domain v的元素的集合。domain specific的basis与scale参数通过loss函数来优化，loss函数定义为：
-![Alt text|center](./1554550473261.png)
+![Alt text|center](./src/AdaGraph/1554550473261.png)
 第一项为在有标签domain上的交叉熵，第二项为在辅助domain上的熵。
 
 这里的domain specific参数实际上就是basis和scale参数，为了把图的信息引入到训练过程中，进一步修改GBN为：
