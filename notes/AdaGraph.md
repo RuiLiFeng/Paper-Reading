@@ -28,10 +28,12 @@ $\hat{\theta}_{\mathcal{T}}=\psi(\mathcal{T})=\frac{\Sigma_{(\mathcal{T},v)\in \
 
 在没有metadata的情况下，可以设定
 $\hat{\theta}_x=\Sigma_{v\in\mathcal{V}}p(v|x)\psi(v)$
+
 $p(v|x)$为给定输入x条件下x属于domain v的概率，他可以由训练一个domain分类器得到
 Step2: Extracting node specific model
 使用domain specif batch-normalization layers（DABN）来做传统的DA（应对那些没有label的domain）。前端的层用于抽取有用统计特征，高层的统计特征只是均值和方差不同，分布是相同的。给定domain k，DABN层是
 $DA_{BN}(x,k)=\gamma\frac{x-\mu_k}{\sqrt{\sigma_k^2+\epsilon}}+\beta$
+
 $\gamma,\beta$是可以学习的全局scale和basis参数。
 
 本文中，令$\psi(k)=\theta_k=\{\theta^{\alpha},\theta^s_k\}$, $\theta^{\alpha}$是全局的共同参数，代表各domain之间的共性（卷积与全链接层），$\theta^s_k$则是domain specific的（DABN层）。利用GraphBN来代替原始的BN，GraphBN定义为：
