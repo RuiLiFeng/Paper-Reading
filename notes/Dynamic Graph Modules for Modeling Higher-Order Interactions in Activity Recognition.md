@@ -6,5 +6,5 @@
 
 本文用动态的图模型来建模对象之间的交互
 
-视频记为![](http://latex.codecogs.com/gif.latex?\\V=\{f_1,...,f_T\}), ![](http://latex.codecogs.com/gif.latex?\\f_t)表示一个由2D或3D ConvNet抽取的第t帧的feature map
+视频记为$V=\{f_1,...,f_T\}$, $f_t$表示一个由2D或3D ConvNet抽取的第t帧的feature map
 使用Region Proposal Network来提取当前帧可能的object，
