@@ -1,4 +1,4 @@
-# 概要
+## 概要
 为了进行视频动作识别，有必要考虑以下两点：
 - 同一帧中对象（object）之间的关系
 - 不同帧之间对象的关系
@@ -15,6 +15,7 @@
 - 在时间维度上，不同帧中的结点图（visual/location graph）如同LSTM中的各隐层一样交换上下文语义信息，形成一个动态图（dynamic graph）
 
 ## Graph
+本文采取了两种不同的构图思路，并进行了比较，实验结果时visual graph好于location graph，作者又把visual graph与location graph的结果concate起来，效果并没有提升（废话，这两个graph识别的对象都不一定是同一个，效果没有下降都应该是调参出来的，私以为更好的方案是在设计时就把他们融为一体）
 ### Visual Graph
 为了捕捉视觉上相似的proposal在连续时间上的关系，本文构建了一个visual graph
 假设RPN提取出的top-N proposal为$B^t=\{b_1^t,...,b^t_N\}$, t表示帧。构建一个动态的全链接图，$\mathcal{G}=(\mathcal{X},\mathcal{E}),\mathcal{X}=\{x_1,...,x_M\},\mathcal{E}=\{E(x_m,x_k)\}$. 每个结点拥有两个属性，特征与位置（记录左上与右下角坐标），用以捕捉在每一帧中合适的region proposal。
@@ -29,3 +30,4 @@
 - 结点状态的输入门由位置上的相邻度（Intersection-Over-Union）决定而非视觉上的相似度
 
 ## Graph Attention
+为了识别每一时刻的动作，并将当前的状态信息传递到下一时刻，这里采用和LSTM一样的思路，在每一时刻的图中设置一个状态变量$q_t$, 状态变量的取值为上一时刻状态与每个结点相似度为权（所谓的graph attention），整个图上点强所有结点的加权平均。
