@@ -23,10 +23,12 @@ Step 1：connecting domains through a graph
 设domain空间为$\mathcal{D}$，metadata空间为$\mathcal{M}$, 存在一个双射$\phi:\mathcal{D}\rightarrow\mathcal{M}$联系domain与metadata。构建一个domain图，结点为$\mathcal{K}$中的domain，边为两个domain的相似性，由其metadata的相似性度量，定义为：$w(v_1,v_2)=e^{-d(\phi(v_1),\phi(v_2))}$。
 
 设$\Theta$是模型参数空间，并假设我们已经正确的学到了domain specific的模型，可以定义映射$\psi:\mathcal{K}\rightarrow\Theta$，从而$\psi o\phi^{-1}$是metadata到模型参数的映射。利用domain图（实际上是metadata图）和参数的关系，我们可以这样估计target domain的参数
-                                                                          $\hat{\theta}_{\mathcal{T}}=\psi(\mathcal{T})=\frac{\Sigma_{(\mathcal{T},v)\in \mathcal{E}}w(\mathcal{T},v)\psi(v)}{\Sigma_{(\mathcal{T},v)\in\mathcal{E}}w(\mathcal{T},v)}$
+                                                                          
+                                                                                                                
+                                                                                                                   $\hat{\theta}_{\mathcal{T}}=\psi(\mathcal{T})=\frac{\Sigma_{(\mathcal{T},v)\in \mathcal{E}}w(\mathcal{T},v)\psi(v)}{\Sigma_{(\mathcal{T},v)\in\mathcal{E}}w(\mathcal{T},v)}$
 
 在没有metadata的情况下，可以设定
-$\hat{\theta}_x=\Sigma_{v\in\mathcal{V}}p(v|x)\psi(v)$
+      $\hat{\theta}_x=\Sigma_{v\in\mathcal{V}}p(v|x)\psi(v)$
 
 $p(v|x)$为给定输入x条件下x属于domain v的概率，他可以由训练一个domain分类器得到
 
