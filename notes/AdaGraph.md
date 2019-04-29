@@ -1,5 +1,5 @@
 # AdaGraph
-@(Transfer Learning)
+
 ## Introduction
 predictive transfer learning：target domain既没有label也没有data，但是有labeled source domain和有data无label的辅助domain，以及各个domain的metadata
 
