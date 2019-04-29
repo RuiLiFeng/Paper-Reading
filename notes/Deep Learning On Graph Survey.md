@@ -1,7 +1,6 @@
-#Deep Learning On Graph Survey
-@(GCN)
+# Deep Learning On Graph Survey
 
-##概论
+## 概论
 GNN的发展有两条主线，一条是试图从signal process的角度，依据数学推导，将CNN推广到一般结构的数据上，被称为spectral GCN，另一条是设计能适应各种复杂图结构并具备优秀性能的locally connected network，被称为spatial GCN。
 
 第一条路线起源于2013年IEEE signal processing magazine上的文章：The emerging filed of signal processing on graphs[1]。这篇文章从信号处理的视角将卷积、平移、扩张和缩放等操作推广到了无向图上，直接成为了后续spectral network和chebnet的理论基础。Spectral network是第一篇实现了GCN的论文，发表于2014年NIPS，其主要内容是对[1]中理论的直接应用。为了解决Spectral network缺乏局部性（卷积核对整个图上任意位置信号变化都有响应），以及需要计算图laplace特征分解（对于大规模图意味着超大的计算量），Defferaard等于NIPS2016提出了chebnet，应用[1]中K邻域locally connected network等价于K次多项式卷积，以及chebyshev多项式递归性质，chebnet缩小了卷积核的响应区间至中心点的K邻域，并且规避了对laplace矩阵的特征值分解，并且第一次将图上的pooling操作应用到GCN中来。ICLR2017提出了1stchebnet，将chebnet在1邻域中展开，并重规范化邻接矩阵，获得了spectral GCN上到目前最好的效果，并将多通道多卷积核滤波总结为形式$\hat{A}XW$，其中$\hat{A}$是重规范化后的邻接矩阵。之后在ICLR2018，FASTGCN使用importance sampling对顶点加权，对spectral GCN做了进一步补充。
