@@ -14,6 +14,7 @@
 - graph内容整合： aGCN：attentional GCN，汇聚图中的高阶信息。
  - 本文使用的是Kipf的1stChebNet，并利用attention对邻接矩阵的权值进行了调整，原始的GCN为
  ![Alt text|center](./src/Graph_R-CNN_for_Scene_Graph_Generation/1557045802888.png)![Alt text|center](./src/Graph_R-CNN_for_Scene_Graph_Generation/1557045812670.png)
+ 
   $a_i\in[0,1]^n$是重规范后的邻接矩阵，$a_{ii}=1,a_{ij}=0$则表示i和j不相邻，因为权值相当于手工提取的特征，未必能很好的与神经网络契合，这里使用attention对权值进行调整，方法如下
   ![Alt text|center](./src/Graph_R-CNN_for_Scene_Graph_Generation/1557046046645.png)
 注意，这里仍然维持了$a_{ii}=1,a_{ij}=0$则表示i和j不相邻的特性，在原始GCN中，这是为了训练过程的稳定性所必要的。
