@@ -39,7 +39,7 @@ $$u_k'u_i=0,v_k'v_i=0,i=1,...,k-1$$
 
 这里其实已经可以循着GCN的思路来推导了，首先这里的距离函数定义在两个子空间中，实际上是在度量两个子空间的相似性，度量可以写为：$x^TY_1^TY_2y,\forall x,y\in\mathbb{R}^m$，之后的条件与特征值特征向量的约束如出一辙。$Y_1^TY_2$在这里就是Laplace矩阵，我们下面来证明这个问题的解是特征值：
 Lemma 1: For any $A\in\mathbb{R}^{m\times m}$,  $\vert\lambda\vert_{max}=\max_{||x||=1,||y||=1}x^TAy$ .
-proof:$x^TAy=x^TU^T\Sigma Vy=\hat{x}^T\Sigma\hat{y}=\sum_{i=1}^m\lambda_i\hat{x}_i\hat{y}_i\leq\vert\lambda_{max}\vert$ . 
+proof:$x^TAy=x^TU^T\Sigma V y=\hat{x}^T\Sigma\hat{y}=\sum_{i=1}^m\lambda_i\hat{x}_i\hat{y}_i\leq\vert\lambda_{max}\vert$ . 
 
 The equality is taken when $j=\arg\max_{i=1,...,m}\vert\lambda_i\vert,\vert\hat{x}_j\vert,\vert\hat{y}_j\vert=1$, that is 
 
